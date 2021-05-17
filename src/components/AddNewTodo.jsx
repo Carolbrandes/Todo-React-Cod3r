@@ -3,22 +3,65 @@ import Button from "./Button";
 import FilterByStatus from "./FilterByStatus";
 import Input from "./Input";
 import Textarea from "./Textarea";
+import { AppContext } from "../Store";
+import { useContext } from "react";
 
 const AddNewTodo = () => {
-  const AddNewTodo = styled.div`
+  const Background = styled.div`
+    background-color: rgba(105, 105, 105, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 2rem 0;
+  `;
+  const AddNewTodo = styled.div`
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 2rem;
+    position: fixed;
+    z-index: 3;
+    width: 400px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+
+    .close-button {
+      position: absolute;
+      top: 5px;
+      right: 15px;
+    }
+
+    .button-wrapper {
+      margin: 1.5rem auto;
+    }
   `;
 
-  return (
-    <AddNewTodo>
-      <Input placeholder="Tarefa" />
-      <Textarea placeholder="Observação" />
-      <FilterByStatus label="Status" id="statusTodo" />
-      <Button label="Adicionar" />
-    </AddNewTodo>
+  const { modal, setModal } = useContext(AppContext);
+
+  const closeModal = () => setModal(false);
+
+  return modal ? (
+    <Background>
+      <AddNewTodo>
+        <div className="close-button">
+          <Button fn={closeModal} label="X" />
+        </div>
+        <Input id="tarefa" label="Tarefa" />
+        <Textarea id="obs" label="Observação" />
+        <FilterByStatus label="Status" id="statusTodo" />
+
+        <div className="button-wrapper">
+          <Button label="Adicionar" />
+        </div>
+      </AddNewTodo>
+    </Background>
+  ) : (
+    false
   );
 };
 

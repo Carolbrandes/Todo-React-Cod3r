@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import Label from "./Label";
 
-const Input = ({ placeholder }) => {
+const Input = ({ placeholder, label, id }) => {
   const Input = styled.input`
     width: 300px;
     height: 45px;
@@ -20,7 +21,12 @@ const Input = ({ placeholder }) => {
       color: #191970;
     }
   `;
-  return <Input type="text" placeholder={placeholder} />;
+  return (
+    <div>
+      <Label id={id} label={label} />
+      <Input id={id} type="text" placeholder={placeholder} />
+    </div>
+  );
 };
 
 export default Input;

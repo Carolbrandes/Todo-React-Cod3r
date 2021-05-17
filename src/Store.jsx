@@ -7,6 +7,7 @@ const Store = ({ children }) => {
   const [status, setStatus] = useState([]);
   const [search, setSearch] = useState("");
   const [filterByStatus, setFilterByStatus] = useState("todos");
+  const [modal, setModal] = useState(false);
 
   return (
     <AppContext.Provider
@@ -19,6 +20,8 @@ const Store = ({ children }) => {
         setSearch,
         filterByStatus,
         setFilterByStatus,
+        modal,
+        setModal,
       }}
     >
       {children}

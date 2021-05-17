@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import Store from "./Store";
 import styled from "styled-components";
 import Title from "./components/Title";
@@ -5,6 +6,7 @@ import Search from "./components/Search";
 import FilterByStatus from "./components/FilterByStatus";
 import Todos from "./components/Todos";
 import AddNewTodo from "./components/AddNewTodo";
+import ButtonAddTodo from "./components/ButtonAddTodo";
 
 const App = () => {
   const App = styled.div`
@@ -24,6 +26,7 @@ const App = () => {
       width: 60%;
     }
   `;
+
   return (
     <Store>
       <App>
@@ -33,6 +36,7 @@ const App = () => {
           <Row className="w-60">
             <Search placeholder="Buscar por" />
             <FilterByStatus label="Filtro por Status" id="status" />
+            <ButtonAddTodo />
           </Row>
         </Row>
 
