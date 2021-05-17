@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Label from "./Label";
 
-const Textarea = ({ placeholder, label, id }) => {
+const Textarea = ({ placeholder, label, id, value, fn }) => {
   const TextAreaWrapper = styled.div`
     margin: 1rem 0;
   `;
@@ -25,7 +25,12 @@ const Textarea = ({ placeholder, label, id }) => {
   return (
     <TextAreaWrapper>
       <Label id={id} label={label} />
-      <TextArea id={id} placeholder={placeholder}></TextArea>
+      <TextArea
+        value={value}
+        onInput={({ target }) => fn(target.value)}
+        id={id}
+        placeholder={placeholder}
+      ></TextArea>
     </TextAreaWrapper>
   );
 };

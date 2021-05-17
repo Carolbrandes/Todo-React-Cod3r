@@ -1,10 +1,10 @@
+import { AppContext } from "../Store";
+import { useContext, useState } from "react";
 import styled from "styled-components";
 import Button from "./Button";
 import FilterByStatus from "./FilterByStatus";
 import Input from "./Input";
 import Textarea from "./Textarea";
-import { AppContext } from "../Store";
-import { useContext } from "react";
 
 const AddNewTodo = () => {
   const Background = styled.div`
@@ -42,6 +42,8 @@ const AddNewTodo = () => {
   `;
 
   const { modal, setModal } = useContext(AppContext);
+  const [titulo, setTitulo] = useState("teste");
+  const [obs, setObs] = useState("obs teste");
 
   const closeModal = () => setModal(false);
 
@@ -51,8 +53,8 @@ const AddNewTodo = () => {
         <div className="close-button">
           <Button fn={closeModal} label="X" />
         </div>
-        <Input id="tarefa" label="Tarefa" />
-        <Textarea id="obs" label="Observação" />
+        <Input value={titulo} fn={setTitulo} id="tarefa" label="Tarefa" />
+        <Textarea value={obs} fn={setObs} id="obs" label="Observação" />
         <FilterByStatus label="Status" id="statusTodo" />
 
         <div className="button-wrapper">

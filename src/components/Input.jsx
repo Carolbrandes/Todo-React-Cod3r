@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Label from "./Label";
 
-const Input = ({ placeholder, label, id }) => {
+const Input = ({ placeholder, label, id, value, fn }) => {
   const Input = styled.input`
     width: 300px;
     height: 45px;
@@ -24,7 +24,13 @@ const Input = ({ placeholder, label, id }) => {
   return (
     <div>
       <Label id={id} label={label} />
-      <Input id={id} type="text" placeholder={placeholder} />
+      <Input
+        value={value}
+        onInput={({ target }) => fn(target.value)}
+        id={id}
+        type="text"
+        placeholder={placeholder}
+      />
     </div>
   );
 };
