@@ -1,0 +1,14 @@
+{
+    "todos":[
+        {"id": 1, "title": "estudar react e redux", "ps": "parei na aula 10", "status": "backlog"},
+        {"id": 2, "title": "Fazer café", "ps": "café com leite", "status": "andamento"},
+        {"id": 3, "title": "Estudar  banco de dados", "ps": "", "status": "feito"}
+    ],
+    
+    "status": [
+        {"id": 1, "name": "backlog"},
+        {"id": 2, "name": "andamento"},
+        {"id": 3, "name": "feito"},
+        {"id": 4, "name": "todos"}
+    ]
+}
